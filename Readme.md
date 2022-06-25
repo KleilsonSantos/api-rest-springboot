@@ -1,8 +1,8 @@
 # API CRUD RESTFUL usando Spring Boot, Hibernate, JPA, Lombok e MySQL.
 
 <p align="center">
- <img src="https://img.shields.io/static/v1?label=java&message=Language%20Programings&color=red&style=for-the-badge&logo=JAVA"/>
- <img src="https://img.shields.io/static/v1?label=spring%20boot&message=Framework&style&color=green&style=for-the-badge&logo=SPRING%20BOOT"/>
+ <img src="https://img.shields.io/static/v1?label=java&message=Programming%20languages&color=red&style=for-the-badge&logo=JAVA"/>
+ <img src="https://img.shields.io/static/v1?label=spring%20boot&message=Framework&color=green&style=for-the-badge&logo=SPRING%20BOOT"/>
  <img src="https://img.shields.io/static/v1?label=maven&message=Apache%20Maven%20Project&color=pink&style=for-the-badge&logo=MAVEN"/>
  <img src="http://img.shields.io/static/v1?label=License&message=MIT&color=green&style=for-the-badge&logo=LICENSE"/>
   <img src="http://img.shields.io/static/v1?label=STATUS&message=Finalizado&color=purple&style=for-the-badge&logo=FINALIZADO"/>
@@ -56,10 +56,10 @@ Para completar o desenvolvimento do projeto tutorial será necessário as seguin
 - [Java JDK (v8+)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 - [Maven (v3+)](https://maven.apache.org/download.cgi)
 - [MySQL + MySQL Workbench (última versão disponível)](https://dev.mysql.com/downloads/workbench/)
-- [Postman]((https://www.getpostman.com/))
+- [Postman](https://www.getpostman.com)
 - [Spring Initializer](https://start.spring.io/)
 - [Spring Tools Suite](https://spring.io/tools)
-- [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client
+- [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client)
 
 ...
 
@@ -291,10 +291,22 @@ Para remover um contato pelo ID, utiliza-se o id que foi passado como parâmetro
 Para que o código consiga se conectar com sucesso na base de dados MySQL, é necessário informar os detalhes de conexão. Esses detalhes são declarados no arquivo src/main/resources/application.properties:
 
 
+## Adicionando arquivo sql ao projeto
+
+criar um arquivo com o nome **import.sql** na pasta **src/main/resources** com seguintes comandos
+
+```
+INSERT INTO tb_contact (contact_name,contact_email,contact_age) VALUES ('Kleilson','kleilson@icloud.com',40);
+INSERT INTO tb_contact (contact_name,contact_email,contact_age) VALUES ('Jhon','jhon@gmail.com',34);
+INSERT INTO tb_contact (contact_name,contact_email,contact_age) VALUES ('Carlos','kleilson@live.com',22);
+INSERT INTO tb_contact (contact_name,contact_email,contact_age) VALUES ('Yanni','yanni@outlook.com',3);
+INSERT INTO tb_contact (contact_name,contact_email,contact_age) VALUES ('Júlia','julia@icloud.com',12);
+```
+
+
 ```
 # Configurando a porta do servidor apach
 server.port = 2222
-#===================
 ## Spring DATASOURCE (DataSourceAutoConfiguration & DataSourceProperties)
 spring.datasource.url=jdbc:mysql://127.0.0.1:3306/crud_spring
 # User
