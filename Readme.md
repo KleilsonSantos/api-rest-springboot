@@ -351,10 +351,10 @@ Pode-se ver com a API se comporta na prática utilizando o Postman (https://www.
 E a API RESTful CRUD está pronta! Um ponto importante é a anotação que foi utilizada em cada método que foi desenvolvido:
 
 - Listar todos os contatos - **@GetMapping(“/contacts")**
-- Obter um contato específico pelo ID - **@GetMapping(“/{id}”)**
-- Remover um contato pelo ID - **DeleteMapping(“/{id}”)**
+- Obter um contato específico pelo ID - **@GetMapping(“/contacts/{id}”)**
+- Remover um contato pelo ID - **DeleteMapping(“/contacts/{id}”)**
 - Criar um novo contato - **@PostMapping(“/contacts)**
-- Atualizar detalhes de um contato - **@PutMapping(“/{id}”)**
+- Atualizar detalhes de um contato - **@PutMapping(“/contacts/{id}”)**
 
 Apesar da URL ser a mesma (/contacts), o que garante os métodos HTTP diferentes são cada uma das anotações usadas em cada método.
 Esse projeto mostrou como desenvolver uma API CRUD conectando num banco de dados local. Os próximos passos são criar um banco de dados em um ambiente cloud além de fazer o deploy da aplicação na nuvem também para que outros usuários também possam utilizar essa API.
