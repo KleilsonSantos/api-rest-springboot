@@ -8,7 +8,7 @@
   <img src="http://img.shields.io/static/v1?label=STATUS&message=Finalizado&color=purple&style=for-the-badge&logo=FINALIZADO"/>
  </p>
  
-> Status do Projeto: :heavy_check_mark: :warning: (em desenvolvimento)
+> Status do Projeto: :heavy_check_mark: :warning: (Finalizado)
  
 ### Tópicos
 :small_blue_diamond: [Links Úteis](#links-úteis)
