@@ -12,53 +12,43 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.apicrudspring.model.Contact;
-import br.com.apicrudspring.repositories.ContactRepository;
+import br.com.apicrudspring.model.ContactModel;
+import br.com.apicrudspring.services.ContactService;
 
 @RestController
-@RequestMapping(path = "/contacts")
+@RequestMapping(value = "/contacts")
 public class ContactController {
 
-	ContactRepository contactRepository;
+	ContactService contactService;
 
-	public ContactController(ContactRepository contactRepository) {
-		this.contactRepository = contactRepository;
+	public ContactController(ContactService contactService) {
+		this.contactService = contactService;
 	}
 
 	@GetMapping
-	public List<?> findAll() {
-		return contactRepository.findAll();
+	public ResponseEntity<List<ContactModel>> findAll() {
+		List<ContactModel> listAllContacts = contactService.findAll();
+		return ResponseEntity.ok(listAllContacts);
 	}
-
+	
+	@PostMapping
+	public ContactModel create(@RequestBody ContactModel contactModel){
+		return contactService.createNewContact(contactModel); 
+	}
+	
 	@GetMapping(value = "/{id}")
-	public Contact findById(@PathVariable Long id) {
-		Contact contact = contactRepository.findById(id).get();
-		return contact;
+	public ResponseEntity<ContactModel> findById(@PathVariable Long id) {
+		return contactService.findContactById(id);
 	}
 
 	@PutMapping(value = "/{id}")
-	public ResponseEntity<?> update(@PathVariable("id") long id, @RequestBody Contact contact) {
-		return contactRepository.findById(id).map(update -> {
-			update.setName(contact.getName());
-			update.setEmail(contact.getEmail());
-			update.setAge(contact.getAge());
-			Contact updated = contactRepository.save(update);
-			return ResponseEntity.ok().body(updated);
-		}).orElse(ResponseEntity.notFound().build());
-	}
-
-	@PostMapping
-	public Contact save(@RequestBody Contact cont) {
-		Contact contact = contactRepository.save(cont);
-		return contact;
+	public ResponseEntity<ContactModel> updateContactById(@PathVariable Long id, @RequestBody ContactModel contactModel){
+		return contactService.updateContactById(id, contactModel);
 	}
 	
 	@DeleteMapping(value = "/{id}")
-	public ResponseEntity<?> delete(@PathVariable("id") Long id) {
-		return contactRepository.findById(id)
-				.map(delete -> {
-					contactRepository.deleteById(id);
-					return ResponseEntity.ok().build();
-				}).orElse(ResponseEntity.notFound().build());
+	public ResponseEntity<Object> deleteContactById(@PathVariable Long id){
+		return contactService.deleteContactById(id);
 	}
+
 }
