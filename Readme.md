@@ -95,7 +95,7 @@ Será criado uma API de Contatos com um Controller que irá expor cinco métodos
 ## Clonando o projeto
 
 ```
-git clone git@github.com:KleilsonSantos/api-rest-spring
+git clone git@github.com:KleilsonSantos/api-rest-springboot
 ```
 ...
 
